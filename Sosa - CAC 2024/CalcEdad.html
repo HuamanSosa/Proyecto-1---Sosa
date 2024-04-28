@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+        .error2 {
+            border: 1px solid blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" 
+        id="edad"
+        min="1"
+        max="120">
+    <button id="determinar">
+        Calcular Edad
+    </button>
+    <div id="resultado"></div>
+    <script src="../js/ejercicios.js"></script>
+</body>
+</html>
+// if/else
+// switch
+// ciclos:
+// for/white/do-while
+// arrays
+
+// if/else
+// switch
+// ciclos:
+// for/white/do-while
+// arrays
+
+function esMayorEdad(edad) { 
+    if(edad >= 18) {
+       return true;
+    }else {
+        return false;
+    }
+}
+function determinar() {
+    const edad = Number(document.getElementById('edad').value);
+    //edad es NaN
+    //o
+    //edad es valor numerico
+    
+    //guards: si la edad es vacio no continuo!
+    if(!edad) {
+        document.getElementById('edad').classList.add('error');
+        return ;
+    }
+
+    //puedo agregar mas validaciones?
+    if(edad < 1 || edad > 120) {
+        document.getElementById('edad').classList.add('error2');
+        return ;
+    }
+
+    const edadNumero = Number(edad);
+    //invoco la funcion esMayordeEdad
+    const esMayor = esMayorEdad(edadNumero);
+    if(esMayor) {
+        document.getElementById('resultado').innerHTML = '<b>Es mayor</b>';
+    }else {
+        document.getElementById('resultado').innerHTML = '<b>Es menor</b>';
+    }
+}
